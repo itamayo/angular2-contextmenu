@@ -41,7 +41,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/isaacplmann/angular2-contextmenu.git"
+    "url": "git+ssh://git@github.com/itamayo/angular2-contextmenu.git"
   },
   "devDependencies": {
     "@angular/common": "^2.4.1",
