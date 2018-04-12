@@ -216,7 +216,7 @@ export class ContextMenuComponent implements AfterContentInit {
       }
     }
     this.mouseLocation = {
-      left: event.clientX + adjustX + 'px',
+      left: event.clientX + 'px',
       top: event.clientY + adjustY + 'px',
     };
   }
