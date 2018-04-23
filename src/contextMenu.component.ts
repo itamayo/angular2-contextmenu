@@ -53,7 +53,7 @@ export interface MouseLocation {
      /* items del menu desplegable */
 
       ul li ul li {
-      float:right;
+      float:none;
       width:150px
      }
 
