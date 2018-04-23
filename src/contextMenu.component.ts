@@ -41,107 +41,59 @@ export interface MouseLocation {
        white-space: nowrap;
 
      }
-     .vertical-nav {
-         height:auto;
-         list-style:none;
-         width: 100%; /******* MODIFIED ********/
-         margin: 20px 0 0 0;
+     ul, ol {
+       list-style:none;
      }
-     .vertical-nav li {
-         height: 25px;
-         margin: 0;
-         padding: 5px 0;
-         background-color: #666;
-         border: none;
-         text-align: center;
-         display: inline-block;
-         float: left;
-         clear:both;
-         width: 100px;  /******* MODIFIED ********/
+
+     .nav {
+       width:500px; /*Le establecemos un ancho*/
+       margin:0 auto; /*Centramos automaticamente*/
      }
-     .vertical-nav li:hover {
-         background-color:#f36f25;
-         color:#FFFFFF;
+
+     .nav > li {
+       float:left;
      }
-     .vertical-nav li a {
-         font-family:Calibri, Arial;
-         font-size:18px;
-         font-weight:bold;
-         color:#ffffff;
-         text-decoration:none;
+
+     .nav li a {
+       background-color:#000;
+       color:#fff;
+       text-decoration:none;
+       padding:10px 12px;
+       display:block;
      }
-     .vertical-nav li.current {
-         background-color:#F36F25;
+
+     .nav li a:hover {
+       background-color:#434343;
      }
-     .vertical-nav li.current a {
-         color:#FFFFFF;
+
+     .nav li ul {
+       display:none;
+       position:absolute;
+       min-width:140px;
      }
-     vertical-nav ul li ul {
-         display:none;
-         list-style-type:none;
-         width:125px;
-         padding:0px;
-         margin-top:3px;
-         margin-left:-5px;
+
+     .nav li:hover > ul {
+       display:block;
      }
-     vertical-nav ul li:hover ul {
-         display:block;
+
+     .nav li ul li {
+       position:relative;
      }
-     vertical-nav ul li:hover ul li {
-         background-color:#555555;
-         width:125px;
-         height:30px;
-         display:inline-block;
-     }
-     vertical-nav ul li ul li:hover {
-         background-color:#333333;
-     }
-     vertical-nav ul li ul li a {
-         color:#FFF;
-         text-decoration:underline;
-     }
-     vertical-nav ul li ul li a:hover {
-         text-decoration:none;
-     }
-     .vertical-nav li ul {
-         display: none;
-         margin-top: 10px;
-         padding: 0;
-     }
-     .vertical-nav li:hover ul {
-         display: block;
-     }
-     .vertical-nav li:hover .sub-menu
-     {
-         position: relative;
-         margin-top: -27.5px;
-     }
-     .sub-menu li
-     {
-         position: relative;
-         display: block;
-         top: 0;
-         left: 100%;
-         width: 100%;
-         min-width: 180px;
-         white-space: nowrap;
-         z-index:1;
-     }
-     .sub-menu li a
-     {
-         display:inline-block;
-         padding: 0 10px;
+
+     .nav li ul li ul {
+       right:-140px;
+       top:0px;
      }`
   ],
   template:
   `<div class="dropdown angular2-contextmenu ">
-      <ul *ngIf="item" #menu [ngStyle]="locationCss" class="dropdown-menu vertical-nav">
+      <ul *ngIf="item" #menu [ngStyle]="locationCss" class="dropdown-menu nav">
         <!-- Imperative context menu -->
         <li *ngFor="let link of links" [class.disabled]="isDisabled(link)">
           <a href [class.dropdown-item]="useBootstrap4" [class.disabled]="useBootstrap4 && isDisabled(link)"
             (click)="execute(link, $event); $event.preventDefault(); $event.stopPropagation();"
             innerHTML="{{link.html ? link.html(item) : ''}}"></a>
-            <ul class="sub-menu">
+            <ul>
             <li *ngFor="let ac of link.actions"  [class.disabled]="isDisabled(ac)">
               <a href [class.dropdown-item]="useBootstrap4" [class.disabled]="useBootstrap4 && isDisabled(ac)"
             (click)="execute(ac, $event); $event.preventDefault(); $event.stopPropagation();"
