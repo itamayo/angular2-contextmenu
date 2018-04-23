@@ -43,7 +43,7 @@ export interface MouseLocation {
      }
      ul li ul {
       display:none;
-      position:absolute;
+      position:relative;
       top:100%;
       left:0;
       background:#eee;
@@ -53,7 +53,7 @@ export interface MouseLocation {
      /* items del menu desplegable */
 
       ul li ul li {
-      float:none;
+      float:right;
       width:150px
      }
 
