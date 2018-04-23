@@ -39,34 +39,35 @@ export interface MouseLocation {
        font-weight: normal;
        line-height: @line-height-base;
        white-space: nowrap;
-ul li ul {
- display:none;
- position:absolute;
- top:100%;
- left:0;
- background:#eee;
- padding:0;
-}
 
-/* items del menu desplegable */
+     }
+     ul li ul {
+      display:none;
+      position:absolute;
+      top:100%;
+      left:0;
+      background:#eee;
+      padding:0;
+     }
 
- ul li ul li {
- float:none;
- width:150px
-}
+     /* items del menu desplegable */
 
-/* enlaces de los items del menu desplegable */
+      ul li ul li {
+      float:none;
+      width:150px
+     }
 
- ul li ul a {
- line-height:120%;
- padding:10px 15px;
-}
+     /* enlaces de los items del menu desplegable */
 
-/* items del menu desplegable al pasar el ratón */
+      ul li ul a {
+      line-height:120%;
+      padding:10px 15px;
+     }
 
- ul li:hover > ul {
- display:block;
-}
+     /* items del menu desplegable al pasar el ratón */
+
+      ul li:hover > ul {
+      display:block;
      }`
   ],
   template:
