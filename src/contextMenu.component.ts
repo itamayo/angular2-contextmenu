@@ -41,73 +41,107 @@ export interface MouseLocation {
        white-space: nowrap;
 
      }
-      li
-     {
-         background: #FFF url(bg.gif) repeat-x 0 2px;
-         list-style: none; margin: 0; padding: 0;
+     .vertical-nav {
+         height:auto;
+         list-style:none;
+         width: 100%; /******* MODIFIED ********/
+         margin: 20px 0 0 0;
      }
-      li a
-     {
-         font: normal 12px Arial;
-         border-top: 1px solid #ccc;
+     .vertical-nav li {
+         height: 25px;
+         margin: 0;
+         padding: 5px 0;
+         background-color: #666;
+         border: none;
+         text-align: center;
+         display: inline-block;
+         float: left;
+         clear:both;
+         width: 100px;  /******* MODIFIED ********/
+     }
+     .vertical-nav li:hover {
+         background-color:#f36f25;
+         color:#FFFFFF;
+     }
+     .vertical-nav li a {
+         font-family:Calibri, Arial;
+         font-size:18px;
+         font-weight:bold;
+         color:#ffffff;
+         text-decoration:none;
+     }
+     .vertical-nav li.current {
+         background-color:#F36F25;
+     }
+     .vertical-nav li.current a {
+         color:#FFFFFF;
+     }
+     vertical-nav ul li ul {
+         display:none;
+         list-style-type:none;
+         width:125px;
+         padding:0px;
+         margin-top:3px;
+         margin-left:-5px;
+     }
+     vertical-nav ul li:hover ul {
+         display:block;
+     }
+     vertical-nav ul li:hover ul li {
+         background-color:#555555;
+         width:125px;
+         height:30px;
+         display:inline-block;
+     }
+     vertical-nav ul li ul li:hover {
+         background-color:#333333;
+     }
+     vertical-nav ul li ul li a {
+         color:#FFF;
+         text-decoration:underline;
+     }
+     vertical-nav ul li ul li a:hover {
+         text-decoration:none;
+     }
+     .vertical-nav li ul {
+         display: none;
+         margin-top: 10px;
+         padding: 0;
+     }
+     .vertical-nav li:hover ul {
          display: block;
-         /*overflow: auto; force hasLayout in IE7 */
-         color: black;
-         text-decoration: none;
-         line-height:26px;
-         padding-left:26px;
      }
-      ul li a
+     .vertical-nav li:hover .sub-menu
      {
-         line-height:30px;
+         position: relative;
+         margin-top: -27.5px;
      }
-
-      li a.arrow:hover
+     .sub-menu li
      {
-         background-image:url(arrowon.gif);
-         background-repeat: no-repeat;
-         background-position: 97% 50%;
+         position: relative;
+         display: block;
+         top: 0;
+         left: 100%;
+         width: 100%;
+         min-width: 180px;
+         white-space: nowrap;
+         z-index:1;
      }
-
-     /*Sub level menu items
-     ---------------------------------------*/
-      li ul
+     .sub-menu li a
      {
-         position: absolute;
-         width: 200px; /*Sub Menu Items width */
-         visibility:hidden;
-     }
-
-      a.arrow
-     {
-         background-image:url(arrow.gif);
-         background-repeat: no-repeat;
-         background-position: 97% 50%;
-     }
-      li:hover,  li.onhover
-     {
-         background-position:0 -62px;
-     }
-      ul li
-     {
-         background: rgba(255, 255, 255, 0.86);
-         background-image:none;
-     }
-      ul li:hover,  ul li.onhover
-     {
-         background: #FFF;
-         background-image:none;
+         display:inline-block;
+         padding: 0 10px;
      }`
   ],
   template:
   `<div class="dropdown angular2-contextmenu ">
-      <ul *ngIf="item" #menu [ngStyle]="locationCss" class="dropdown-menu nav">
+      <ul *ngIf="item" #menu [ngStyle]="locationCss" class="dropdown-menu vertical-nav">
         <!-- Imperative context menu -->
         <li *ngFor="let link of links" [class.disabled]="isDisabled(link)">
           <a href [class.dropdown-item]="useBootstrap4" [class.disabled]="useBootstrap4 && isDisabled(link)"
             (click)="execute(link, $event); $event.preventDefault(); $event.stopPropagation();"
             innerHTML="{{link.html ? link.html(item) : ''}}"></a>
-            <ul>
+            <ul class="sub-menu">
             <li *ngFor="let ac of link.actions"  [class.disabled]="isDisabled(ac)">
               <a href [class.dropdown-item]="useBootstrap4" [class.disabled]="useBootstrap4 && isDisabled(ac)"
             (click)="execute(ac, $event); $event.preventDefault(); $event.stopPropagation();"
