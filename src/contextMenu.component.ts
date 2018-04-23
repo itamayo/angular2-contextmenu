@@ -41,42 +41,42 @@ export interface MouseLocation {
        white-space: nowrap;
 
      }
-     div ul {list-style-type: none; margin:0; padding:0; width: 200px; background-color: #f1f1f1; position: fixed;}
-     div ul li {min-width: 200px; font-size:14px;}
-     div ul li a {display: block; color: #000; text-decoration: none; padding: 16px 0 16px 16px;}
-     ul li:hover > a {color: white; background-color: #555;}
+     ul li ul {
+      display:none;
+      position:absolute;
+      background:#eee;
+      padding:0;
+      right:-115px;
+     }
 
-     .dropdown-content {
-     	min-width: 150px;
-         display: none;
-     	left: 200px;
-         float:left;
-         position: absolute;
-     	font-size:14px;
-     	margin-top: -48px;
+     /* items del menu desplegable */
+
+      ul li ul li {
+        position:relative;
      }
-     .dropdown-content a {
-         background-color: #fbfbfb;
-         color: black;
-         text-decoration: none;
-         display: block;
-         text-align: left;
-     	padding: 16px 0 16px 16px;
+
+     /* enlaces de los items del menu desplegable */
+
+      ul li ul a {
+      padding:10px 15px;
      }
-     .dropdown:hover > .dropdown-content {
-         display: inline-block;
+
+     /* items del menu desplegable al pasar el ratón */
+
+      ul li:hover > ul {
+      display:block;
      }`
   ],
   template:
   `<div class="dropdown angular2-contextmenu">
       <ul *ngIf="item" #menu [ngStyle]="locationCss" class="dropdown-menu">
         <!-- Imperative context menu -->
-        <li *ngFor="let link of links" [class.disabled]="isDisabled(link)" class="dropdown">
+        <li *ngFor="let link of links" [class.disabled]="isDisabled(link)">
           <a href [class.dropdown-item]="useBootstrap4" [class.disabled]="useBootstrap4 && isDisabled(link)"
             (click)="execute(link, $event); $event.preventDefault(); $event.stopPropagation();"
             innerHTML="{{link.html ? link.html(item) : ''}}"></a>
-            <ul class="dropdown-content">
-            <li *ngFor="let ac of link.actions"  [class.disabled]="isDisabled(ac)" class="dropdown">
+            <ul>
+            <li *ngFor="let ac of link.actions"  [class.disabled]="isDisabled(ac)">
               <a href [class.dropdown-item]="useBootstrap4" [class.disabled]="useBootstrap4 && isDisabled(ac)"
             (click)="execute(ac, $event); $event.preventDefault(); $event.stopPropagation();"
             innerHTML="{{ac.html ? ac.html(item) : ''}}"></a>
