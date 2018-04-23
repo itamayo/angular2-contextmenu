@@ -41,48 +41,62 @@ export interface MouseLocation {
        white-space: nowrap;
 
      }
-     ul, ol {
-       list-style:none;
+      li
+     {
+         background: #FFF url(bg.gif) repeat-x 0 2px;
+         list-style: none; margin: 0; padding: 0;
+     }
+      li a
+     {
+         font: normal 12px Arial;
+         border-top: 1px solid #ccc;
+         display: block;
+         /*overflow: auto; force hasLayout in IE7 */
+         color: black;
+         text-decoration: none;
+         line-height:26px;
+         padding-left:26px;
+     }
+      ul li a
+     {
+         line-height:30px;
      }
 
-     .nav {
-       width:500px; /*Le establecemos un ancho*/
-       margin:0 auto; /*Centramos automaticamente*/
+      li a.arrow:hover
+     {
+         background-image:url(arrowon.gif);
+         background-repeat: no-repeat;
+         background-position: 97% 50%;
      }
 
-     .nav > li {
-       float:left;
+     /*Sub level menu items
+     ---------------------------------------*/
+      li ul
+     {
+         position: absolute;
+         width: 200px; /*Sub Menu Items width */
+         visibility:hidden;
      }
 
-     .nav li a {
-       background-color:#000;
-       color:#fff;
-       text-decoration:none;
-       padding:10px 12px;
-       display:block;
+      a.arrow
+     {
+         background-image:url(arrow.gif);
+         background-repeat: no-repeat;
+         background-position: 97% 50%;
      }
-
-     .nav li a:hover {
-       background-color:#434343;
+      li:hover,  li.onhover
+     {
+         background-position:0 -62px;
      }
-
-     .nav li ul {
-       display:none;
-       position:absolute;
-       min-width:140px;
+      ul li
+     {
+         background: rgba(255, 255, 255, 0.86);
+         background-image:none;
      }
-
-     .nav li:hover > ul {
-       display:block;
-     }
-
-     .nav li ul li {
-       position:relative;
-     }
-
-     .nav li ul li ul {
-       right:-140px;
-       top:0px;
+      ul li:hover,  ul li.onhover
+     {
+         background: #FFF;
+         background-image:none;
      }`
   ],
   template:
