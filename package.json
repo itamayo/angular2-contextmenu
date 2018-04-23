@@ -3,8 +3,7 @@
   "version": "0.8.2",
   "description": "An Angular 2 component to show a context menu on an arbitrary component",
   "main": "angular2-contextmenu.js",
-  "scripts": {
-  },
+  "scripts": {},
   "typings": "angular2-contextmenu.d.ts",
   "keywords": [
     "angular2",
@@ -19,8 +18,8 @@
     "type": "git",
     "url": "git+ssh://git@github.com/itamayo/angular2-contextmenu.git"
   },
-  "devDependencies": {
-
-  },
-  "dependencies": {}
+  "devDependencies": {},
+  "dependencies": {
+    "gulp": "^3.9.1"
+  }
 }
