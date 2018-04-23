@@ -71,12 +71,12 @@ export interface MouseLocation {
   `<div class="dropdown angular2-contextmenu">
       <ul *ngIf="item" #menu [ngStyle]="locationCss" class="dropdown-menu">
         <!-- Imperative context menu -->
-        <li *ngFor="let link of links" [class.disabled]="isDisabled(link)" class="class="dropdown">
+        <li *ngFor="let link of links" [class.disabled]="isDisabled(link)" class="dropdown">
           <a href [class.dropdown-item]="useBootstrap4" [class.disabled]="useBootstrap4 && isDisabled(link)"
             (click)="execute(link, $event); $event.preventDefault(); $event.stopPropagation();"
             innerHTML="{{link.html ? link.html(item) : ''}}"></a>
             <ul class="dropdown-content">
-            <li *ngFor="let ac of link.actions"  [class.disabled]="isDisabled(ac)" class="class="dropdown">
+            <li *ngFor="let ac of link.actions"  [class.disabled]="isDisabled(ac)" class"dropdown">
               <a href [class.dropdown-item]="useBootstrap4" [class.disabled]="useBootstrap4 && isDisabled(ac)"
             (click)="execute(ac, $event); $event.preventDefault(); $event.stopPropagation();"
             innerHTML="{{ac.html ? ac.html(item) : ''}}"></a>
