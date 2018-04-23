@@ -46,7 +46,7 @@ export interface MouseLocation {
       position:absolute;
       background:#eee;
       padding:0;
-      float:right;
+      left:115px;
      }
 
      /* items del menu desplegable */
