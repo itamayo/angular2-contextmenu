@@ -159,13 +159,7 @@ export class ContextMenuComponent implements AfterContentInit {
     }
     this.isOpening = true;
     setTimeout(() => this.isOpening = false, 400);
-    if (actions) {
-      if (console && console.warn) {
-        console.warn(`actions configuration object is deprecated and will be removed in version 1.x.
-        See https://github.com/isaacplmann/angular2-contextmenu for the new declarative syntax.`);
-      }
-    }
-    if (actions && actions.length > 0) {
+     if (actions && actions.length > 0) {
       // Imperative context menu
       this.setVisibleMenuItems();
       this.showMenu();
