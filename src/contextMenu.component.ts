@@ -50,7 +50,7 @@ export interface MouseLocation {
             (click)="execute(link, $event); $event.preventDefault(); $event.stopPropagation();"
             innerHTML="{{link.html ? link.html(item) : ''}}"></a>
             <ul>
-            {link.actions.length}
+            {{ link.actions | json }}
             <li *ngFor="let ac of link.actions"  [class.disabled]="isDisabled(ac)">
               <a href [class.dropdown-item]="useBootstrap4" [class.disabled]="useBootstrap4 && isDisabled(ac)"
             (click)="execute(ac, $event); $event.preventDefault(); $event.stopPropagation();"
