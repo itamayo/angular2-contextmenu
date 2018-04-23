@@ -83,7 +83,7 @@ export interface MouseLocation {
      .nav li ul li ul {
        right:-140px;
        top:0px;
-     }
+     }`
   ],
   template:
   `<div class="dropdown angular2-contextmenu ">
