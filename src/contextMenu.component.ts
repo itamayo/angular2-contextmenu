@@ -39,7 +39,7 @@ export interface MouseLocation {
        font-weight: normal;
        line-height: @line-height-base;
        white-space: nowrap;
-ul ul {
+ul li ul {
  display:none;
  position:absolute;
  top:100%;
@@ -50,21 +50,21 @@ ul ul {
 
 /* items del menu desplegable */
 
- ul ul li {
+ ul li ul li {
  float:none;
  width:150px
 }
 
 /* enlaces de los items del menu desplegable */
 
- ul ul a {
+ ul li ul a {
  line-height:120%;
  padding:10px 15px;
 }
 
 /* items del menu desplegable al pasar el ratón */
 
-#menu ul li:hover > ul {
+ ul li:hover > ul {
  display:block;
 }
      }`
