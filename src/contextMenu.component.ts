@@ -49,6 +49,13 @@ export interface MouseLocation {
           <a href [class.dropdown-item]="useBootstrap4" [class.disabled]="useBootstrap4 && isDisabled(link)"
             (click)="execute(link, $event); $event.preventDefault(); $event.stopPropagation();"
             innerHTML="{{link.html ? link.html(item) : ''}}"></a>
+            <ul>
+            <li *ngFor="let ac of link.action"  [class.disabled]="isDisabled(ac)">
+              <a href [class.dropdown-item]="useBootstrap4" [class.disabled]="useBootstrap4 && isDisabled(ac)"
+            (click)="execute(ac, $event); $event.preventDefault(); $event.stopPropagation();"
+            innerHTML="{{ac.html ? ac.html(item) : ''}}"></a>
+            </li>
+          </ul>
         </li>
         <!-- Declarative context menu -->
         <li *ngFor="let menuItem of visibleMenuItems" [class.disabled]="!isMenuItemEnabled(menuItem)"
