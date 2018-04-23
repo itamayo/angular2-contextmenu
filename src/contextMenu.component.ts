@@ -41,14 +41,12 @@ export interface MouseLocation {
        white-space: nowrap;
 
      }
-     ul li {
-       float:left;
-     }
      ul li ul {
       display:none;
       position:absolute;
       background:#eee;
       padding:0;
+      float:right;
      }
 
      /* items del menu desplegable */
