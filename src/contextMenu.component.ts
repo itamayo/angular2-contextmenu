@@ -41,53 +41,35 @@ export interface MouseLocation {
        white-space: nowrap;
 
      }
-     ul, ol {
-       list-style:none;
+     ul li ul {
+      display:none;
+      position:absolute;
+      background:#eee;
+      padding:0;
+      right:-115px;
      }
 
-     .nav {
-       width:500px; /*Le establecemos un ancho*/
-       margin:0 auto; /*Centramos automaticamente*/
+     /* items del menu desplegable */
+
+      ul li ul li {
+        position:relative;
      }
 
-     .nav > li {
-       float:left;
+     /* enlaces de los items del menu desplegable */
+
+      ul li ul a {
+      padding:10px 15px;
      }
 
-     .nav li a {
-       background-color:#000;
-       color:#fff;
-       text-decoration:none;
-       padding:10px 12px;
-       display:block;
-     }
+     /* items del menu desplegable al pasar el ratón */
 
-     .nav li a:hover {
-       background-color:#434343;
-     }
-
-     .nav li ul {
-       display:none;
-       position:absolute;
-       min-width:140px;
-     }
-
-     .nav li:hover > ul {
-       display:block;
-     }
-
-     .nav li ul li {
-       position:relative;
-     }
-
-     .nav li ul li ul {
-       right:-140px;
-       top:0px;
+      ul li:hover > ul {
+      display:block;
      }`
   ],
   template:
-  `<div class="dropdown angular2-contextmenu ">
-      <ul *ngIf="item" #menu [ngStyle]="locationCss" class="dropdown-menu nav">
+  `<div class="dropdown angular2-contextmenu">
+      <ul *ngIf="item" #menu [ngStyle]="locationCss" class="dropdown-menu">
         <!-- Imperative context menu -->
         <li *ngFor="let link of links" [class.disabled]="isDisabled(link)">
           <a href [class.dropdown-item]="useBootstrap4" [class.disabled]="useBootstrap4 && isDisabled(link)"
