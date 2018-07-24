@@ -91,13 +91,13 @@ export interface MouseLocation {
           <a *ngIf="!menuItem.divider && !menuItem.passive" href [class.dropdown-item]="useBootstrap4"
             [class.disabled]="useBootstrap4 && !isMenuItemEnabled(menuItem)"
             (click)="menuItem.triggerExecute(item, $event); $event.preventDefault(); $event.stopPropagation();">
-            <template [ngTemplateOutlet]="menuItem.template" [ngOutletContext]="{ $implicit: item }"></template>
+            <ng-template [ngTemplateOutlet]="menuItem.template" [ngOutletContext]="{ $implicit: item }"></ng-template>
           </a>
 
           <span (click)="stopEvent($event)" (contextmenu)="stopEvent($event)" class="passive"
                 *ngIf="!menuItem.divider && menuItem.passive" [class.dropdown-item]="useBootstrap4"
                 [class.disabled]="useBootstrap4 && !isMenuItemEnabled(menuItem)">
-            <template [ngTemplateOutlet]="menuItem.template" [ngOutletContext]="{ $implicit: item }"></template>
+            <ng-template [ngTemplateOutlet]="menuItem.template" [ngOutletContext]="{ $implicit: item }"></ng-template>
           </span>
         </li>
       </ul>
