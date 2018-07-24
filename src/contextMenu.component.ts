@@ -1,5 +1,6 @@
 import { ContextMenuItemDirective } from './contextMenu.item.directive';
-import { CONTEXT_MENU_OPTIONS, IContextMenuOptions } from './contextMenu.options';
+import { CONTEXT_MENU_OPTIONS} from './contextMenu.options';
+import {IContextMenuOptions}  from './contextMenu.options2';
 import { ContextMenuService, IContextMenuClickEvent } from './contextMenu.service';
 import {
   AfterContentInit,

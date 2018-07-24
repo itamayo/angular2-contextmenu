@@ -1,4 +1,5 @@
-import { CONTEXT_MENU_OPTIONS, IContextMenuOptions } from './src/contextMenu.options';
+import { CONTEXT_MENU_OPTIONS} from './src/contextMenu.options';
+import {IContextMenuOptions}  from './src/contextMenu.options2';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContextMenuComponent } from './src/contextMenu.component';
